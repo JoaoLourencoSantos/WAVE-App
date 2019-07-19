@@ -11,6 +11,7 @@ body{
     height: 100%;
     margin: 0px;
     padding: 0px;
+    background:rgba(236, 234, 234);
 }
 
 ::-webkit-scrollbar {
@@ -25,14 +26,21 @@ body{
     -webkit-box-shadow: inset 0 0 6px rgba(10, 10, 10,.4); 
 }
 /*header*/
+header.header{
+    height: 7.5%;
+    
+
+}
 header{
+    display: flex;
+    flex-direction: row-reverse;
     width: 100%;
     height: 15%;
-    background: rgb(78, 207, 247);
+    background: white;
     box-shadow: 2px 2px 6px rgba(10, 10, 10, .2)
 }
 header>nav{
-    width: 100%;
+    width: 83%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -49,11 +57,18 @@ header>nav>ul{
 }
 header>nav>ul>li{
     display: inline-block;
-    color:white;
+    color:rgb(0, 0, 0);
     margin:1.5%;
-    font-size: 1.25em; 
+    font-size: 1em; 
+    font-family: 'Caviar Dreams';
 }
-
+header>nav>ul>li>a:hover{
+    color: rgb(0, 102, 255);
+}
+header>nav>ul>li>a{
+    text-decoration: none;
+    color:black;
+}
 
 /*background*/
 
@@ -74,7 +89,7 @@ header>nav>ul>li{
     border-radius: 100% 50%;
     width: 60%;
     height: 100%;
-    background-color: white;
+    background:rgba(230, 230, 230);
     right: -0.5%;
     top: 65.45%;        
 }
@@ -90,11 +105,186 @@ header>nav>ul>li{
     left: -5%;
     top: 45%;
 }
+div#wave>article{
+    z-index: 10001;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+div#wave>article>div{    
+    width: 50%;
+    height: 100%;
+    color:rgb(105, 104, 104);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div#wave>article>div>img{
+    display: block;
+    width: 80%;
+    height: 50%;
+    margin-left: 10%;
+}
+div#wave>article>div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+div#wave>article>div:nth-child(2){
+    color:rgb(105, 104, 104);
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center; 
+}
+div#wave>article>div>span:nth-child(1){
+    font-size: 6em; 
+}
+div#wave>article>div>span:nth-child(2){
+    font-size: 2em;
+}
 
+/*Destaques*/
+section.cards{
+    margin:0 auto;
+    width: 95%;
+    height: 30%;
+    top: 17%;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+section.cards>div{
+    padding:0;
+    border-radius: 20px;
+    position:relative;
+    margin:0 auto;
+    background:rgba(0, 195, 255,.3);
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+section.cards>div:nth-child(1){
+    background:url("../assets/moda.png") 70% no-repeat;
+}
+section.cards>div:nth-child(2){
+    background:url("../assets/jogos.jpg") 60% no-repeat;
+}
+section.cards>div:nth-child(3){
+    background:url("../assets/futebol.jpg") 70% no-repeat;
+}
+section.cards>div:hover div.description{
+    visibility: visible;
+    opacity: 1;
+}
+div.description{    
+    padding:0;
+    margin:0;
+    border-radius: 20px;
+    position:absolute;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(10, 10, 10,.75);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div.description>span:nth-child(1){
+    font-size: 2em;
+}
+div.description>span{
+    font-size: 1.7em;
+    text-align: center;
+    color:white;
+    display: block;
+}
 
+/*Conteudos*/
 main{
+    margin:0 auto;
+    
+    width: 95%;
+    height: 100%;
+    margin-bottom: 1%; 
     top: 20%;
     position: relative;
     z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
+main>section{
+    margin:0 auto;
+    background:rgba(255, 255, 255);
+    width: 65%;
+    height: 98%;
+    border-radius: 20px;
+}
+main>aside{
+    margin:0 auto;
+    background:rgba(255, 255, 255);
+    width: 30%;
+    height: 60%;
+    border-radius: 20px;
+    position: relative;
+    top: -19%;
+}
+main>aside>ul{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    list-style: none;
+    color:rgb(0, 0, 0);
+    font-size: 1em; 
+    font-family: 'Caviar Dreams';
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    
+}
+main>aside>ul>li{     
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 0px; 
+    width: 95%;
+    height: 7%;
+    display: block;
+    box-shadow:  0 1.5px 2px -2px gray;    
+    margin: 0 auto;
+    margin-top: 2%;  
+    color:black;
 
+}
+main>aside>ul>li:hover{  
+ color:gray;    
+   
+}
+main>aside>ul>li:hover span{
+    margin-left: 8%;
+}
+main>aside>ul>li>span{ 
+    display: block;   
+    margin-top: 1.5%;
+    margin-left: 5%;
+}
+main>aside>ul>li:nth-child(11){ 
+    box-shadow: none;
+}
