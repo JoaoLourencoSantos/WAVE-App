@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/post.css">
     <link rel="icon" type="imagem/png" href="assets/icon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>JÉRIKA</title>
 </head>
 
@@ -26,9 +27,57 @@
     <main>
         <section>
             <header>
-                Postagens   
+                <span>Postagens</span>                
             </header>
             <main>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                    <div>
+                        <img src="assets/icon-success.png" alt="">
+                    </div>
+                    <div>adfadsfads</div>
+                </article>
+                <article>
+                        <div>
+                            <img src="assets/icon-success.png" alt="">
+                        </div>
+                    <div></div>
+                </article>
 
             </main>
 
@@ -36,13 +85,10 @@
 
         <section>
             <div id="titulo-comentario"> Postar</div>
-            <div>
-                <form>
-                    <textarea cols="30" rows="5"></textarea>
-                </form>
-            </div>
-            <div>
-                <form >
+
+            <form id="conteudo1" action="PHP/conexao.php" method="POST">
+                <textarea name="postagem" cols="30" rows="5"></textarea>
+                <div id="form2">
                     <select id="categoria">
                         <option> Música</option>
                         <option> Filme</option>
@@ -51,13 +97,24 @@
                         <option> Moda</option>
                         <option> Esporte</option>
                     </select>
-                </form>
-                <img src="assets/icon-image.png" alt="">
-                <img src="assets/icon-success.png" alt="">
-                <img src="assets/icon-error.png" alt="">
-            </div>
+
+                    <label id="imagem" for='selecao-arquivo'>
+                        <img src="assets/icon-image.png ">
+                    </label>
+                    <input id='selecao-arquivo' type='file'>
+                    <label id="save" for='salvar'>
+                        <img src="assets/icon-success.png ">
+                    </label>
+                    <input id='salvar' type='submit'>
+                </div>
+
+            </form>
+
+
         </section>
+
     </main>
+
     <script src="script/script.js"></script>
 </body>
 
