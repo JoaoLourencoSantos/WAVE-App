@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'Montserrat ExtraLight';
+    src: url(/font/Montserrat/Montserrat-ExtraLight.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 html{
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: 'Montserrat ExtraLight';
     
     overflow-x: hidden;
 }
@@ -60,7 +67,7 @@ header>nav>ul>li{
     color:rgb(0, 0, 0);
     margin:1.5%;
     font-size: 1em; 
-    font-family: 'Caviar Dreams';
+   
 }
 header>nav>ul>li>a:hover{
     color: rgb(0, 102, 255);
@@ -250,7 +257,7 @@ main>aside>ul{
     list-style: none;
     color:rgb(0, 0, 0);
     font-size: 1em; 
-    font-family: 'Caviar Dreams';
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
