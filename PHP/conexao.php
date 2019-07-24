@@ -8,6 +8,8 @@ if(isset($_REQUEST["type"]) && $_REQUEST["type"] == 1 ){
 $errorImage    = "";
 $caminhoImagem = "";
 function returnImage($img){
+    
+         // Verifica se o arquivo é uma imagem
     if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $img["type"])){
         $errorImage = "Isso não é uma imagem.";    
      }else{
@@ -52,16 +54,17 @@ function conectDB(){
 /* INSERINDO NO BANCO OS DADOS*/
 
 
-function insertPost($conexao, $user, $post, $img, $like, $type){    
+function insertPost($conexao, $user, $title, $post, $img, $like, $type){    
     $dataAtual = date("d/m/Y");
     try {
-        $stmt = $conexao->prepare("INSERT INTO POSTAGENS ( ID_USUARIO, CONTEUDO_POST, IMAGEM_POST, DATA_POST, CATEGORIA_POST, LIKES) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conexao->prepare("INSERT INTO POSTAGENS ( ID_USUARIO, TITULO_POST ,CONTEUDO_POST, IMAGEM_POST, DATA_POST, CATEGORIA_POST, LIKES) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bindParam(1, $user);
-        $stmt->bindParam(2, $post);
-        $stmt->bindParam(3, $img);
-        $stmt->bindParam(4, $dataAtual);
-        $stmt->bindParam(5, $type);
-        $stmt->bindParam(6, $like);
+        $stmt->bindParam(2, $title);
+        $stmt->bindParam(3, $post);
+        $stmt->bindParam(4, $img);
+        $stmt->bindParam(5, $dataAtual);
+        $stmt->bindParam(6, $type);
+        $stmt->bindParam(7, $like);
     
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {    
@@ -97,6 +100,7 @@ function insertPost($conexao, $user, $post, $img, $like, $type){
 function validInputs(){ 
     $id        = $_POST["id-post"]   ;
     $usuario   = $_POST["id-user"]   ;
+    $titulo    = $_POST["titulo"]    ;
     $postagem  = $_POST["postagem"]  ;
     $categoria = $_POST["categoria"] ;
     $curtidas  = $_POST["curtidas"]  ;
@@ -105,7 +109,7 @@ function validInputs(){
     if(isset($postagem) && $postagem != null){
         if(isset($usuario) && $usuario != null){
             if(isset($imagem) && $imagem != null){
-                insertPost(conectDB(), $usuario, $postagem, returnImage($imagem), $curtidas, $categoria);
+                insertPost(conectDB(), $usuario, $titulo, $postagem, returnImage($imagem), $curtidas, $categoria);
             }else{
                 echo 
                 "<script>                         

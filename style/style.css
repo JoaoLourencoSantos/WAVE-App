@@ -70,11 +70,13 @@ header>nav>ul>li{
    
 }
 header>nav>ul>li>a:hover{
-    color: rgb(0, 102, 255);
+    color: rgb(0, 195, 255);
 }
+
 header>nav>ul>li>a{
     text-decoration: none;
-    color:black;
+    font-weight: bold;
+     color:rgb(0, 0, 0);
 }
 
 /*background*/
@@ -278,11 +280,12 @@ main>aside>ul>li{
     margin: 0 auto;
     margin-top: 2%;  
     color:black;
+    font-weight: bold;
 
 }
 main>aside>ul>li:hover{  
  color:gray;    
-   
+    
 }
 main>aside>ul>li:hover span{
     margin-left: 8%;

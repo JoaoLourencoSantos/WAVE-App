@@ -28,11 +28,11 @@
     <main>
         <section>
             <header>
-                <span>Postagens</span>                
+                <span style="font-weight: bold;">Postagens</span>                
             </header>
-            <main>
+            <main style="font-weight: bold;">
                     <?php
-                    // importando os objetos que precisarei, como conexão para fzer leitura
+                    // importando os objetos que precisarei, como conexão para fazer leitura
                     require('PHP/conexao.php');
                     //Try que roda o tamanho do banco e retorna dos dados em suas respectivas posições 
                     try {
@@ -45,8 +45,13 @@
                                 //imprimindo os articles/posts
                                 echo "  <article>"
                                         ."<div><img src='".$parte."' alt='Olá'></div>"
-                                        ."<div><span>".$rs->CONTEUDO_POST."</span>"
-                                        ."<span>".$rs->DATA_POST."</span></div>"
+                                        ."<div>"
+                                            ."<div>"
+                                                ."<span>".$rs->TITULO_POST."</span>" 
+                                                ."<span>".$rs->DATA_POST."</span>"
+                                            ."</div>"
+                                            ."<span>".$rs->CONTEUDO_POST."</span>"
+                                        ."<div>"
                                         ."</article>";
                             }
                         } else {
@@ -61,9 +66,9 @@
         </section>
 
         <section>
-            <div id="titulo-comentario"> Postar</div>
 
             <form id="conteudo1" action="PHP/conexao.php?type=1" method="POST"  enctype="multipart/form-data" >
+                <div id="titulo-comentario"> <textarea id="titulo-postagem" name="titulo" placeholder="Título"cols="30" rows="5"></textarea></div>
                 <input hidden type="number" value="5"  name="id-post">
                 <input hidden type="number" value="5"  name="id-user">
                 <input hidden type="number" value="10" name="curtidas">

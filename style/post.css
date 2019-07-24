@@ -22,8 +22,8 @@
             margin-top:-1%;
         }
         main{
-            top:2%;
             height: auto;
+            top:2%;
             justify-content: flex-start;
             align-items: flex-start
         }
@@ -49,8 +49,28 @@
             justify-content: center;
             align-items: center;
             font-family:'Montserrat ExtraLight'; 
-            font-size: 1.8em; 
+            font-size: 1.1em; 
+            font-weight: bold;
             
+        }
+        #titulo-postagem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            resize: none;
+            height: 50%;
+            width: 100%;   
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 10px 25px;
+            color:black !important;
+            outline:none;
+            font-size: 1em;
+            font-family:'Montserrat ExtraLight';
+            font-weight: bold;
+            resize: none;
+            overflow-y:hidden;
         }
         #categoria{
             border-radius: 15px;
@@ -71,18 +91,21 @@
             justify-content: center;
             align-items: center;
             font-size: 2em;
-            
+                       
         } 
     
         main>section>main{
             top:0;
+            margin:0;
+            display: flex;
+            flex-direction: column;              
             width: 100%;
+            height: auto;
             border-radius: 0px 0px 20px 20px;
-            background: red;
         
         }
         #conteudo1{
-            height:90%;            
+            height:100%;            
             border-radius: 0 0 20px 20px;        
             top: 0;
             padding: 0;
@@ -92,8 +115,9 @@
             justify-content: space-around;
             align-items: center;  
             font-family:'Montserrat ExtraLight'; 
-            
+
         }
+        
         form>textarea{
             resize: none;
             height: 85%;
@@ -106,7 +130,7 @@
             outline:none;
             font-size: 1em;
             font-family:'Montserrat ExtraLight';
-            
+            font-weight: bold;
             
         }
         form>textarea::-webkit-input-placeholder{
@@ -137,15 +161,12 @@
     
     
         
-        label>#imagem{
-        
+        label>#imagem{        
             top:0;       
             padding: 0;
             margin:0; 
             width: 32px;
             height: 32px;
-    
-    
         }
         
     
@@ -158,14 +179,10 @@
     
     
           /* CONTEUDO DOS POSTS*/
-          main>section>main{
-              display: flex;
-              flex-direction: column;
-          }
+ 
           main>section>main>article{
-              background: green;
               width: 100%;
-              height: 30%;
+              height: 5%;
               display: flex;
               flex-direction: row;
               justify-content: center;
@@ -173,19 +190,48 @@
               margin:.2% 0;
           }
           main>section>main>article>div:nth-child(1){
-              width: 15%;
+              width: 45%;
               height: 80%;          
               display: flex;
               flex-direction: row;
               justify-content: center;
               align-items: center;
           }
+          main>section>main>article>div:nth-child(2){
+            width: 65%;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            }
           main>section>main>article>div:nth-child(1)>img{
               width: 80%;
               height: 80%;
           }
-          main>article>div:nth-child(2){
-              background: yellow;
-              width: 85%;
-              height: 90%;
+
+          main>article>div:nth-child(2)>div{
+              width: 100%;
+              height: 15%;             
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          }
+          main>article>div:nth-child(2)>span{
+              display: block;
+              width: 100%;
+              height: 85%;
+          }
+          main>article>div:nth-child(2)>div>span:nth-child(1){
+              display: block;
+              width:   80%;
+              height: 100%;
+              text-align:center;    
+          }
+          main>article>div:nth-child(2)>div>span:nth-child(2){
+                text-align:center;
+              display: block;
+              width: 20%;
+              height: 100%;
           }
