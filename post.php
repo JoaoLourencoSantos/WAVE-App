@@ -20,7 +20,7 @@
         <nav>
             <ul>
                 <li> <a href="index.html">Home</a></li>
-                <li> <a href="post.html">Posts </a></li>
+                <li> <a href="post.php">Posts </a></li>
                 <li> <a href="sobre.html">Sobre Nós</a></li>
             </ul>
         </nav>
@@ -42,17 +42,39 @@
                                 //pegando parte da string da imagem, tirando o desnecessário
                                 $nome = $rs->IMAGEM_POST;
                                 $parte = substr($nome, 3);
+                                $categoria="";
+                                if($rs->CATEGORIA_POST == 1){
+                                    $categoria="Esporte";
+                                }elseif($rs->CATEGORIA_POST ==2){
+                                    $categoria="Filme";
+                                }elseif($rs->CATEGORIA_POST ==3){
+                                    $categoria="Livro";
+                                }elseif($rs->CATEGORIA_POST ==4){
+                                    $categoria="Moda";
+                                }elseif($rs->CATEGORIA_POST ==5){
+                                    $categoria="Música";
+                                }else{
+                                    $categoria="Série";
+                                }
+
                                 //imprimindo os articles/posts
-                                echo "  <article>"
-                                        ."<div><img src='".$parte."' alt='Olá'></div>"
+                                echo "<article>"
+                                        ."<div style=' width:50%; height:450px; ' >"
+                                            ."<img src='".$parte."' alt='Olá'>"
+                                        ."</div>"
                                         ."<div>"
                                             ."<div>"
                                                 ."<span>".$rs->TITULO_POST."</span>" 
                                                 ."<span>".$rs->DATA_POST."</span>"
+
                                             ."</div>"
                                             ."<span>".$rs->CONTEUDO_POST."</span>"
-                                        ."<div>"
-                                        ."</article>";
+                                            ."<div id='footer'>"
+                                                ."<span >".$categoria."</span>"
+
+                                            ."</div>"
+                                        ."</div>"
+                                    ."</article>";
                             }
                         } else {
                             echo "Erro: Não foi possível recuperar os dados do banco de dados";
@@ -80,7 +102,7 @@
                         <option value="3"> Livro   </option>
                         <option value="4"> Moda    </option>
                         <option value="5"> Música  </option>
-                        <option value="6"> Serie   </option>
+                        <option value="6"> Série   </option>
                     </select>
 
                     <label id="imagem" for='selecao-arquivo' >
