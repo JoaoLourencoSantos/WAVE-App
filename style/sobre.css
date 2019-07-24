@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Montserrat ExtraLight';
+    src: url(/font/Montserrat/Montserrat-ExtraLight.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+header.header{
+    display: flex;
+    flex-direction: row;  
+}
+header.header>nav{
+    width: 85%;
+    height: 100%;
+}
+    
+img#logo{
+    width: 15%;
+    height: 100%;
+    margin-left:2%; 
+    margin-top:-1%;
+}
+
+main{
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+div{
+    width:100%;
+    text-align: center;
+    font-size: 3.5em;
+    color:gray;
+}

@@ -1,167 +1,191 @@
-
+@font-face {
+    font-family: 'Montserrat ExtraLight';
+    src: url(/font/Montserrat/Montserrat-ExtraLight.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+        
     header.header{
-    display: flex;
-    flex-direction: row;
-    
-    }
-    header.header>nav{
-        width: 85%;
-        height: 100%;
-    }
-    
-    img#logo{
-        width: 15%;
-        height: 100%;
-        margin-left:2%; 
-        margin-top:-1%;
-    }
-    main{
-        top:2%;
-        height: auto;
-        justify-content: flex-start;
-        align-items: flex-start
-    }
-    main>section:nth-child(1){
-        width: 75%; 
-        margin: .5% 1%; 
-    
-    }
-    main>section:nth-child(2){
-        width: 23%;
-        height: 50%;
-        position: fixed;
-        right: 1%;  
-        top: 10.5%;  
-        background: rgb(255, 255, 255);
-    }
-    #titulo-comentario{
-        width: 100%;
-        height: 10%;
-        background-image: linear-gradient(rgb(0, 195, 255) -80%, rgb(48, 240, 198) 90%) ;
-        border-radius: 20px 20px 0 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family:'Caviar Dreams'; 
-        font-size: 1.8em; 
-        
-    }
-    #categoria{
-        border-radius: 15px;
-        background: none;
-        border: none;
-        
-    }
-    
-    main>section>header{
-        border-radius: 20px 20px 0 0;
-        background: black;    
-        width: 100%;
-        height: 10%;
-        color:white;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        font-size: 2em;
-    } 
-
-    main>section>main{
-        top:0;
-        width: 100%;
-        border-radius: 0px 0px 20px 20px;
-        background: red;
-    
-    }
-    #conteudo1{
-        height:90%;
         
-        border-radius: 0 0 20px 20px;        
-        top: 0;
-        padding: 0;
-        margin: 0;
+        }
+        header.header>nav{
+            width: 85%;
+            height: 100%;
+        }
         
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;   
-    }
-    form>textarea{
-        resize: none;
-        height: 85%;
-        width: 100%;        
-        top: 0;
-        padding: 0;
-        margin: 0;
-        border:none;
-    }
-    #form2{        
-        height: 15%;
-        width: 100%;          
-        padding: 0;
-        top: 0;
-        margin: 0;
-        background-image: linear-gradient(rgb(48, 240, 198) 10%,rgb(0, 195, 255) 90%) ;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;        
-        border-radius: 0 0 20px 20px;
-
-    }
-
-
-
+        img#logo{
+            width: 15%;
+            height: 100%;
+            margin-left:2%; 
+            margin-top:-1%;
+        }
+        main{
+            top:2%;
+            height: auto;
+            justify-content: flex-start;
+            align-items: flex-start
+        }
+        main>section:nth-child(1){
+            width: 75%; 
+            margin: .5% 1%; 
+        
+        }
+        main>section:nth-child(2){
+            width: 23%;
+            height: 50%;
+            position: fixed;
+            right: 1%;  
+            top: 10.5%;  
+            background: rgb(255, 255, 255);
+        }
+        #titulo-comentario{
+            width: 100%;
+            height: 10%;
+            background-image: linear-gradient(rgb(0, 195, 255) -80%, rgb(48, 240, 198) 90%) ;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family:'Montserrat ExtraLight'; 
+            font-size: 1.8em; 
+            
+        }
+        #categoria{
+            border-radius: 15px;
+            background: none;
+            border: none;
+            outline:none;
+            
+        }
+        
+        main>section>header{
+            border-radius: 20px 20px 0 0;
+            background: black;    
+            width: 100%;
+            height: 10%;
+            color:white;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            
+        } 
     
-    label>#imagem{
+        main>section>main{
+            top:0;
+            width: 100%;
+            border-radius: 0px 0px 20px 20px;
+            background: red;
+        
+        }
+        #conteudo1{
+            height:90%;            
+            border-radius: 0 0 20px 20px;        
+            top: 0;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;  
+            font-family:'Montserrat ExtraLight'; 
+            
+        }
+        form>textarea{
+            resize: none;
+            height: 85%;
+            width: 100%;        
+            top: 0;
+            padding: 0;
+            margin: 0;
+            color:black !important;
+            border:none;
+            outline:none;
+            font-size: 1em;
+            font-family:'Montserrat ExtraLight';
+            
+            
+        }
+        form>textarea::-webkit-input-placeholder{
+            
+            color:rgb(123, 128, 129);
+            font-size: 1em;
+            
+            
+           
+        }
+        
+       
+        #form2{        
+            height: 15%;
+            width: 100%;          
+            padding: 0;
+            top: 0;
+            margin: 0;
+            background-image: linear-gradient(rgb(48, 240, 198) 10%,rgb(0, 195, 255) 90%) ;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;        
+            border-radius: 0 0 20px 20px;
     
-        top:0;       
-        padding: 0;
-        margin:0; 
-        width: 32px;
-        height: 32px;
-
-
-    }
+        }
     
-
-    input[type='file'] {
-        display: none
-      }
-    input[type='submit'] {
-        display: none
-      }
-
-
-      /* CONTEUDO DOS POSTS*/
-      main>section>main{
-          display: flex;
-          flex-direction: column;
-      }
-      main>section>main>article{
-          background: green;
-          width: 100%;
-          height: 30%;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          margin:.2% 0;
-      }
-      main>section>main>article>div:nth-child(1){
-          width: 15%;
-          height: 80%;          
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-      }
-      main>section>main>article>div:nth-child(1)>img{
-          width: 80%;
-          height: 80%;
-      }
-      main>article>div:nth-child(2){
-          background: yellow;
-          width: 85%;
-          height: 90%;
-      }
+    
+    
+        
+        label>#imagem{
+        
+            top:0;       
+            padding: 0;
+            margin:0; 
+            width: 32px;
+            height: 32px;
+    
+    
+        }
+        
+    
+        input[type='file'] {
+            display: none
+          }
+        input[type='submit'] {
+            display: none
+          }
+    
+    
+          /* CONTEUDO DOS POSTS*/
+          main>section>main{
+              display: flex;
+              flex-direction: column;
+          }
+          main>section>main>article{
+              background: green;
+              width: 100%;
+              height: 30%;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              margin:.2% 0;
+          }
+          main>section>main>article>div:nth-child(1){
+              width: 15%;
+              height: 80%;          
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+          }
+          main>section>main>article>div:nth-child(1)>img{
+              width: 80%;
+              height: 80%;
+          }
+          main>article>div:nth-child(2){
+              background: yellow;
+              width: 85%;
+              height: 90%;
+          }
