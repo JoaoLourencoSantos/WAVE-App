@@ -1,2 +1,2 @@
-# J-RIKA
-Teste de conhecimentos
+# Wave
+Produzido por Érika Márcia e João Marcos.
