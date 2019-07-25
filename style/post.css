@@ -3,8 +3,8 @@
     src: url(/font/Montserrat/Montserrat-ExtraLight.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-        
+}
+
 header.header{
     display: flex;
     flex-direction: row;
@@ -42,7 +42,7 @@ main>section:nth-child(2){
 }
 #titulo-comentario{
     width: 100%;
-    height: 10%;
+    height: 11%;
     background-image: linear-gradient(rgb(0, 195, 255) -80%, rgb(48, 240, 198) 90%) ;
     border-radius: 20px 20px 0 0;
     display: flex;
@@ -50,7 +50,7 @@ main>section:nth-child(2){
     align-items: center;
     font-family:'Montserrat ExtraLight'; 
     font-size: 1.1em; 
-    font-weight: bold;
+    font-weight: bold;  
     
 }
 #titulo-postagem{
@@ -118,9 +118,9 @@ main>section>main{
 
 }
 
-form>textarea{
+form>textarea#postagem{
     resize: none;
-    height: 85%;
+    height: 84%;
     width: 96%;        
     top: 0;
     padding: 0 2%;
@@ -179,9 +179,10 @@ input[type='submit'] {
 }
 
 
+
   /* CONTEUDO DOS POSTS*/
 
-  main>section>main>article{
+main>section>main>article{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -208,12 +209,81 @@ div#footer{
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+     
 }
 div#footer>span{
     margin:0% 3%;
     display: block;
-    width: 20%;
+    width: 10%;
     text-align: end;
+    
+}
+
+
+div#footer>form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;    
+    
+}
+div#footer>form>div:nth-child(1){
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;    
+
+}
+div#footer>form>div:nth-child(2){
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;   
+}
+div#footer>form>div:nth-child(3){
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;   
+     
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 80%;
+    background: rgba(10, 10, 10,.4); 
+    visibility: hidden;
+    border-radius: 20px;
+}
+
+div#footer>form>textarea#comentario{
+    resize: none;
+    height: 120%;
+    width: 70%;   
+    top:0;
+    margin: 0 1%;
+    padding: .5% 2.5%;
+    border-color: rgb(138, 170, 180);
+    border-radius: 10px;
+    color:black !important;
+    outline:none;
+    font-size: 1em;
+    font-family:'Montserrat ExtraLight';
+    font-weight: bold;
+    
+}
+div#footer>form>div:nth-child(2)>span{
+    width: 10%;  
+    text-align: center;  
 }
 main>section>main>article>div:nth-child(2){
   width: 65%;
