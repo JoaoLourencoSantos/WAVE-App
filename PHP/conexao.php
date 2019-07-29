@@ -2,7 +2,7 @@
 /* RECEBENDO DADOS DO FORMULÁRIO VIA POST */
 
 if(isset($_REQUEST["type"]) && $_REQUEST["type"] == 1 ){
-    validInputs();
+    validInputPosts();
 }
 
 $errorImage    = "";
@@ -54,37 +54,48 @@ function conectDB(){
 /* INSERINDO NO BANCO OS DADOS*/
 
 
-function insertPost($conexao, $user, $title, $post, $img, $like, $type){    
+function insertPost($conexao, $user, $title, $post, $img, $like, $type){  
+    // recebendo a data atual para qual o post foi escrito
     $dataAtual = date("d/m/Y");
-    try {
+    // Try-Catch é utilizado para o tratamento de exceções, ou seja, erros que ocorrem em tempo de execução e podem derrubar a aplicação. 
+    // Com o bloco “try” “captura” e pode identificar o erro, e tratá-lo da maneira que achar mais conveniente no bloco “catch”.
+    try{
+        // moldando o sql à ser executado durante a conexão com o banco
         $stmt = $conexao->prepare("INSERT INTO POSTAGENS ( ID_USUARIO, TITULO_POST ,CONTEUDO_POST, IMAGEM_POST, DATA_POST, CATEGORIA_POST, LIKES) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bindParam(1, $user);
+        // preenchendo os parametros de entrada com os valores provindos do formulário
+        //  -> == simbolo utilizado para chamar um método de uma classe php
+        $stmt->bindParam(1, $user); // parametros
         $stmt->bindParam(2, $title);
         $stmt->bindParam(3, $post);
         $stmt->bindParam(4, $img);
         $stmt->bindParam(5, $dataAtual);
         $stmt->bindParam(6, $type);
         $stmt->bindParam(7, $like);
-    
-        if ($stmt->execute()) {
-            if ($stmt->rowCount() > 0) {    
+        // testando se a execução do sql retornou um valor true, se retornou..
+        if ($stmt->execute()) 
+        {
+            // rowCount => confere o numero de linhas afetadas pelo delete, insert ou update, caso seja == 0 , ele não conseguiu fazer modificações no banco
+            if ($stmt->rowCount() > 0) 
+            {    
                 echo 
                 "<script>                         
                     document.location.href='../post.php' 
                     alert('Cadastrado com sucesso!');
                 </script>";
             
-            } else {                
+            }else 
+            {                
                 echo 
                 "<script>                         
                     document.location.href='../post.php' 
                     alert('Erro ao tentar efetivar cadastro!');
                 </script>";
             }
-        } else {
+        }else {
+            // retorno de msg de erro
             throw new PDOException("Erro: Não foi possível executar a declaração sql");
         }
-    } catch (PDOException $erro) {
+    }catch (PDOException $erro) {
         echo 
         "<script>                         
             document.location.href='../post.php' 
@@ -97,7 +108,7 @@ function insertPost($conexao, $user, $title, $post, $img, $like, $type){
 
 // isset retorna true para caso o campo existir, caso a input não exista o isset retorna falso
 
-function validInputs(){ 
+function validInputPosts(){ 
     $id        = $_POST["id-post"]   ;
     $usuario   = $_POST["id-user"]   ;
     $titulo    = $_POST["titulo"]    ;
@@ -105,6 +116,7 @@ function validInputs(){
     $categoria = $_POST["categoria"] ;
     $curtidas  = $_POST["curtidas"]  ;
     $imagem    = $_FILES["imagem"]   ;    
+
     
     if(isset($postagem) && $postagem != null){
         if(isset($usuario) && $usuario != null){

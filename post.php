@@ -16,7 +16,9 @@
     
 
     <header class="header">
-        <img src="assets/logo2.png" alt="" id="logo">
+        <a href="index.html">
+            <img src="assets/logo2.png" alt="" id="logo">
+        </a>
         <nav>
             <ul>
                 <li> <a href="index.html">Home</a></li>
@@ -71,7 +73,7 @@
                                             ."<span>".$rs->CONTEUDO_POST."</span>"
                                             ."<div id='footer'>"
                                                 
-                                                ."<form action=''>"
+                                                ."<form id='coments' method='POST' action='post.php'>"
                                                     ."<div>"
                                                         ."<span> 0 </span> <img src='assets/icon-like.png' title='Curtir postagem!'> "
                                                     ."</div>"
@@ -79,12 +81,13 @@
                                                         ."<span> 0 </span>"
                                                         ."<img src='assets/icon-chat.png' title='Comentar'>"
                                                     ."</div>"
-                                                    ."<textarea id='comentario' name='comentario' placeholder='Comentario'></textarea>"
-                                                    
-                                                    ."<div>"
+                                                    ."<textarea id='comentario' name='comentario' placeholder='Comentar'></textarea>"                                                    
+                                                    ."<div>"                                                    
                                                         ."<label id='salve' for='btn-salvar'>"                                                
                                                             ."<img src='assets/icon-success.png' title='Salvar comentário!'>"
                                                         ."<label/>"
+                                                        ."<input hidden type='number' value='".$rs->ID_POST."' name='id-post'>"
+                                                        ."<input hidden type='number' value='".$rs->ID_USUARIO."' name='id-user'>"
                                                         ."<input id='btn-salvar' type='submit'>"
                                                     ."</div>"
                                                 ."</form>"    
@@ -100,27 +103,7 @@
                     } catch (PDOException $erro) {
                         echo "Erro: ".$erro->getMessage();
                     }
-                    // Bloco if que recupera as informações no formulário, etapa utilizada pelo Update
-                    if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "upd" && $id != "") {
-                        try {
-                            $stmt = $conexao->prepare("SELECT * FROM POSTAGENS WHERE id = ?");
-                            $stmt->bindParam(1, $id, PDO::PARAM_INT);
-                            if ($stmt->execute()) {
-                                $rs = $stmt->fetch(PDO::FETCH_OBJ);
-                                $id = $rs->id;
-                                $title = $rs->titulo;
-                                $post = $rs->postagem;
-                                $img = $rs->imagem;
-                                $type = $rs->categoria;
-
-                                
-                            } else {
-                                throw new PDOException("Erro: Não foi possível executar a declaração sql");
-                            }
-                        } catch (PDOException $erro) {
-                            echo "Erro: ".$erro->getMessage();
-                        }
-                    }
+                   
                     
                     
                     ?>     
@@ -135,7 +118,7 @@
                 <input hidden type="number" value="5"  name="id-post">
                 <input hidden type="number" value="5"  name="id-user">
                 <input hidden type="number" value="10" name="curtidas">
-                <textarea id="postagem" name="postagem" placeholder="Sobre o que vamos falar hoje?"cols="30" rows="5"></textarea>
+                <textarea maxlength="1290" id="postagem" name="postagem" placeholder="Sobre o que vamos falar hoje?"cols="30" rows="5"></textarea>
                 <div id="form2">
                     <select name="categoria" id="categoria">
                         <option value="1"> Esporte </option>
@@ -163,8 +146,82 @@
         </section>
 
     </main>
-
-    <script src="script/script.js"></script>
+    <?php
+        
+         
+        function insertComentario($conexao,$usuario, $id_post, $comentario){
+            $dataAtual = date("d/m/Y");
+            try{
+                $stmt = $conexao->prepare("INSERT INTO COMENTARIOS(ID_USUARIO, ID_POST, CONTEUDO_COMENTARIO, DATA_COMENTARIO) VALUES ( ?, ?, ?, ?)");
+                $stmt->bindParam(1, $usuario);
+                $stmt->bindParam(2, $id_post);
+                $stmt->bindParam(3, $comentario);
+                $stmt->bindParam(4, $dataAtual); 
+                if ($stmt->execute()) {
+                    if ($stmt->rowCount() > 0) {    
+                        echo 
+                        "<script> 
+                            alert('Comentado com sucesso!');
+                        </script>";                                         
+                    } else {                
+                        echo 
+                        "<script> 
+                            alert('Erro ao tentar comentar!');
+                        </script>";
+                    }
+                } else {
+                    throw new PDOException("Erro: Não foi possível executar a declaração sql");
+                }
+            }catch (PDOException $erro) {
+                echo 
+                "<script>                         
+                    alert('Erro: ".$erro->getMessage()."!');
+                </script>";        
+            }
+        }   
+        
+        function validInputComents(){ 
+            $usuario     = $_POST["id-user"]    ;
+            $id_post     = $_POST["id-post"]    ;
+            $comentario  = $_POST["comentario"] ;
+        
+            
+            if(isset($comentario) && $comentario != null){
+                if(isset($usuario) && $usuario != null){
+                    if(isset($id_post) && $id_post != null){
+                        insertComentario(conectDB(),$usuario, $id_post, $comentario);                          
+                        $usuario     = null ;
+                        $id_post     = null ;
+                        $comentario  = null ;                         
+                    }else{
+                        echo 
+                        "<script>                         
+                            alert('Preencha corretamente1!!!');
+                        </script>";             
+                    }        
+                }else{
+                    echo 
+                    "<script>                         
+                        alert('Preencha corretamente2!!!');
+                    </script>";         
+                }
+            }else{
+                echo 
+                "<script>                         
+                    alert('Preencha corretamente3!!!');
+                </script>";     }
+        }
+        
+    ?>                
+    <script>
+        document.getElementById('btn-salvar').addEventListener("click", function(){
+            <?php
+                validInputComents();
+            ?>
+            document..getElementById('coments').reset();
+        });
+        
+    </script>
 </body>
 
 </html>

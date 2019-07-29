@@ -14,12 +14,16 @@ header.header>nav{
     width: 85%;
     height: 100%;
 }
-        
-img#logo{
+header.header>a{
+    display:block;
     width: 15%;
     height: 100%;
-    margin-left:2%; 
-    margin-top:-1%;
+}        
+img#logo{
+    width: 100%;
+    height: 100%;
+    margin-left:5%; 
+    margin-top:-5%;
 }
 main{
     height: auto;
